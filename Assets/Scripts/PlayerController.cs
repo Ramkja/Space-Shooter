@@ -21,25 +21,21 @@ public class PlayerController : MonoBehaviour {
     private float nextFire;
 
     // Use this for initialization
-    void Start()
-    {
+    void Start() {
         rb = GetComponent<Rigidbody>();
         aS = GetComponent<AudioSource>();
         nextFire = 0.0f;
     }
 
-    void Update()
-    {
-        if (Input.GetButton("Fire1") && Time.time > nextFire)
-        {
+    void Update() {
+        if (Input.GetButton("Fire1") && Time.time > nextFire) {
             nextFire = Time.time + fireRate;
             Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
             aS.Play();
         }
     }
 
-    void FixedUpdate()
-    {
+    void FixedUpdate() {
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
 
